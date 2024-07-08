@@ -1,7 +1,7 @@
 import React from 'react';
 import { CodeProvider } from './CodeContext';
-import Header from './Header';
-import Home from './Home';
+import Header from './components/Header';
+import Home from './components/Home';
 
 const App = () => {
   return (

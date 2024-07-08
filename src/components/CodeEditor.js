@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { CodeContext } from './CodeContext';
+import { CodeContext } from '../CodeContext';
 
 const CodeEditor = () => {
   const { code, setCode } = useContext(CodeContext);
