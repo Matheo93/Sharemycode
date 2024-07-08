@@ -1,20 +1,14 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { List, ListItem, ListItemText } from '@mui/material';
-import { CodeContext } from './CodeContext';  // Correct import path
+import React from 'react';
+import CodeEditor from './CodeEditor';
+import CodeView from './CodeView';
 
 const Home = () => {
-    const { codes } = useContext(CodeContext);
-
-    return (
-        <List>
-            {codes.map((code, index) => (
-                <ListItem button component={Link} to={`/code/${code.id}`} key={index}>
-                    <ListItemText primary={code.title} />
-                </ListItem>
-            ))}
-        </List>
-    );
+  return (
+    <div>
+      <CodeEditor />
+      <CodeView />
+    </div>
+  );
 };
 
 export default Home;

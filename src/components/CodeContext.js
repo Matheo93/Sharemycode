@@ -1,28 +1,13 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState } from 'react';
 
-const CodeContext = createContext();
+export const CodeContext = createContext();
 
-const CodeProvider = ({ children }) => {
-  const [codes, setCodes] = useState(() => {
-    const savedCodes = localStorage.getItem('codes');
-    return savedCodes ? JSON.parse(savedCodes) : [];
-  });
-
-  const addCode = (code) => {
-    const newCodes = [...codes, { ...code, id: codes.length }];
-    setCodes(newCodes);
-    localStorage.setItem('codes', JSON.stringify(newCodes));
-  };
-
-  useEffect(() => {
-    console.log('Codes state updated:', codes);
-  }, [codes]);
+export const CodeProvider = ({ children }) => {
+  const [code, setCode] = useState('');
 
   return (
-    <CodeContext.Provider value={{ codes, addCode }}>
+    <CodeContext.Provider value={{ code, setCode }}>
       {children}
     </CodeContext.Provider>
   );
 };
-
-export { CodeContext, CodeProvider };

@@ -1,24 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Header from './components/Header';
-import Home from './components/Home';
-import CodeEditor from './components/CodeEditor';
-import CodeView from './components/CodeView';
-import { CodeProvider } from './components/CodeContext';  // Correct import path
+import { CodeProvider } from './CodeContext';
+import Header from './Header';
+import Home from './Home';
 
-function App() {
-    return (
-        <CodeProvider>
-            <Router>
-                <Header />
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/editor" element={<CodeEditor />} />
-                    <Route path="/code/:id" element={<CodeView />} />
-                </Routes>
-            </Router>
-        </CodeProvider>
-    );
-}
+const App = () => {
+  return (
+    <CodeProvider>
+      <div className="App">
+        <Header />
+        <Home />
+      </div>
+    </CodeProvider>
+  );
+};
 
 export default App;
